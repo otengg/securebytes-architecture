@@ -19,17 +19,22 @@ This repository documents design decisions, implementation phases, and operation
 
 ## Logical Model
 
-
-External
-│
-▼
-Perimeter Tier
-│
-├── Infrastructure Tier (24/7 services)
-└── Lab / Compute Tier (experimental workloads)
-
-
----
+```
+                [ External ]
+                     │
+                     ▼
+            ┌──────────────────┐
+            │  Perimeter Tier  │
+            │  (Edge / FW)     │
+            └──────────────────┘
+                     │
+        ┌────────────┴────────────┐
+        ▼                         ▼
+┌──────────────────┐      ┌──────────────────┐
+│ Infrastructure   │      │ Lab / Compute    │
+│ Tier (24/7)      │      │ Tier (Experimental)
+└──────────────────┘      └──────────────────┘
+```
 
 ## Current State
 
